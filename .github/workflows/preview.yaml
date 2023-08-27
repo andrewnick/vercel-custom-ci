@@ -7,8 +7,11 @@ on:
     branches-ignore:
       - main
 jobs:
-  Deploy-Preview:
+  build:
     runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
     strategy:
       matrix:
         node-version: [18]
@@ -31,7 +34,7 @@ jobs:
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_PERSONAL_ACCOUNT_TOKEN }}
       - name: Build Project Artifacts
         working-directory: ./apps/web
-        run: vercel build --token=${{ secrets.VERCEL_PERSONAL_ACCOUNT_TOKEN }}
+        run: pnpm web:build
       - name: Deploy Project Artifacts to Vercel
         working-directory: ./apps/web
         run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_PERSONAL_ACCOUNT_TOKEN }}
