@@ -47,7 +47,7 @@ jobs:
         with:
           vercel-token: ${{ secrets.VERCEL_PERSONAL_ACCOUNT_TOKEN }} # Required
           github-token: ${{ secrets.GITHUB_TOKEN }} #Optional
-          # vercel-args: '--prod' #Optional
+          vercel-args: "--prod" #Optional
           vercel-org-id: ${{ env.VERCEL_ORG_ID}} #Required
           vercel-project-id: ${{ env.VERCEL_PROJECT_ID }} #Required
           # working-directory: ./apps/web
