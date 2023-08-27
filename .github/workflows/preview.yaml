@@ -50,4 +50,4 @@ jobs:
           # vercel-args: '--prod' #Optional
           vercel-org-id: ${{ env.VERCEL_ORG_ID}} #Required
           vercel-project-id: ${{ env.VERCEL_PROJECT_ID }} #Required
-          working-directory: ./apps/web
+          # working-directory: ./apps/web
