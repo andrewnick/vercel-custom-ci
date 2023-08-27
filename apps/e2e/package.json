@@ -1,0 +1,16 @@
+{
+  "name": "e2e",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev:test": "playwright test",
+    "e2e:test": "start-server-and-test \"(cd ../web && pnpm start)\" http://localhost:3000 dev:test"
+  },
+  "dependencies": {
+    "start-server-and-test": "^2.0.0",
+    "web": "workspace:*"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.37.1"
+  }
+}
